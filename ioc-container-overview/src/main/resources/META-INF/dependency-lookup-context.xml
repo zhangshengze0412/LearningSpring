@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="org.geekbang.ioc.overview.domain.User">
+        <property name="id" value="1"/>
+        <property name="name" value="zs"/>
+    </bean>
+
+    <!--primary = true 表示该bean为主要，当根据Bean类型查找到多个匹配的bean时，不会报错，返回该bean-->
+    <bean id="superUser" class="org.geekbang.ioc.overview.domain.SuperUser" parent="user"
+          primary="true">
+        <property name="address" value="杭州"/>
+    </bean>
+
+    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <!--疑问？这里为什么不用引用ref，而是用值value-->
+        <property name="targetBeanName" value="user"/>
+    </bean>
+</beans>
