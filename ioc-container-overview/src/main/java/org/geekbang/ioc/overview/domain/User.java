@@ -35,4 +35,12 @@ public class User {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public static User createUser(){
+        User user = new User();
+        user.setId(2l);
+        user.setName("ls-by-createUser");
+        return user;
+    }
+
 }
