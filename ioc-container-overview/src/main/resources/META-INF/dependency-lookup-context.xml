@@ -7,6 +7,16 @@
     <bean id="user" class="org.geekbang.ioc.overview.domain.User">
         <property name="id" value="1"/>
         <property name="name" value="zs"/>
+        <property name="city" value="HANGZHOU"/>
+        <property name="workCities" value="BEIJING,HANGZHOU"/>
+        <!--<property name="lifeCities" value="BEIJING,SHANGHAI"/>-->
+        <property name="lifeCities">
+            <list>
+                <value>BEIJING</value>
+                <value>SHANGHAI</value>
+            </list>
+        </property>
+        <property name="configFieldLocation" value="classpath:META-INF/user-config.properties"/>
     </bean>
 
     <!--primary = true 表示该bean为主要，当根据Bean类型查找到多个匹配的bean时，不会报错，返回该bean-->

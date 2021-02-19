@@ -1,7 +1,6 @@
 package org.geekbang.ioc.overview.dependency.lookup;
 
 import org.geekbang.ioc.overview.annotation.Super;
-import org.geekbang.ioc.overview.domain.SuperUser;
 import org.geekbang.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
