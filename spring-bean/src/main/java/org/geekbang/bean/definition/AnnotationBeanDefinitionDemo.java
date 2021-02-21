@@ -29,6 +29,8 @@ public class AnnotationBeanDefinitionDemo {
         // 注册Configuration Class（配置类）
         applicationContext.register(AnnotationBeanDefinitionDemo.class);
 
+//        applicationContext.refresh();
+
         // 通过Java API方式注册BeanDefinition
         // 命名 Bean 的注册方式
         registerBeanDefinition(applicationContext,"ls");
