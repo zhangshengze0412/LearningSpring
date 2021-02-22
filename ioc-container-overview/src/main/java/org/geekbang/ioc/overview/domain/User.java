@@ -1,8 +1,11 @@
 package org.geekbang.ioc.overview.domain;
 
 import org.geekbang.ioc.overview.City;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 //import java.util.List;
@@ -13,7 +16,7 @@ import java.util.List;
  * @author: ZSZ
  * @date: 2021/2/5 11:32
  */
-public class User {
+public class User implements BeanNameAware {
 
     private Long id;
 
@@ -26,6 +29,9 @@ public class User {
     private String name;
 
     private Resource configFieldLocation;
+
+    // 当前Bean的名称
+    private transient String beanName;
 
     public Long getId() {
         return id;
@@ -75,6 +81,10 @@ public class User {
         this.lifeCities = lifeCities;
     }
 
+    public String getBeanName() {
+        return beanName;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -92,6 +102,22 @@ public class User {
         user.setId(2l);
         user.setName("ls-by-createUser");
         return user;
+    }
+
+
+    @PostConstruct
+    public void init(){
+        System.out.println("User Bean [" + beanName + "] 初始化....");
+    }
+
+    @PreDestroy
+    public void destroy(){
+        System.out.println("User Bean [" + beanName + "] 销毁....");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
     }
 
 }
