@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="bean-lifecycle" />
         <module name="bean-scope" />
         <module name="dependency-injection" />
         <module name="dependency-lookup" />
@@ -15,5 +16,8 @@
         <module name="spring-bean" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="my-pring" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
